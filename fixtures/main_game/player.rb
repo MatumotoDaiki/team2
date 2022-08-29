@@ -14,9 +14,9 @@ module Fixture::MainGame
     end
 
     def update
-      self.x += Input.x # 「←」キー: -1, 「→」キー: 1, 押下無し: 0
+      self.x += Input.x * 3# 「←」キー: -1, 「→」キー: 1, 押下無し: 0
       self.x = (self.x + Window.width) % Window.width
-      self.y += Input.y # 「↑」キー: -1, 「↓」キー: 1, 押下無し: 0
+      self.y += Input.y * 3 # 「↑」キー: -1, 「↓」キー: 1, 押下無し: 0
       self.y = (self.y + Window.height) % Window.height
     end
   end

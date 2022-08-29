@@ -7,9 +7,12 @@ module Scene
       @score = 0
       @player = Player.new(Window.width/2, Window.height - 50)
 
-      enemy_img = Image.new(64, 64, C_RED)
-      30.times do |i|
-        Enemy.add(rand(150) + 150, rand(150) + 150, enemy_img)
+      #enemy_img = Image.new(64, 64, C_RED)
+      enemy_img = Image.load("images/enemy1.png")
+      ballet_img = Image.load("images/enemy1.png")
+      5.times do |i|
+        Enemy.add(rand(770), 0,enemy_img)
+        Beam
       end
     end
 
@@ -25,6 +28,7 @@ module Scene
       # どれか一つでも当たっていれば1得点(複数個当たっていても1点しか入らない)
       if Sprite.check(@player, Enemy.collection)
         @score += 1
+        puts @score
       end
     end
 
@@ -45,10 +49,10 @@ module Scene
 
     def management_enemy
       # 敵が10体未満なら、10体追加
-      if Enemy.collection.length < 10
-        enemy_img = Image.new(64, 64, C_RED)
-        10.times do |i|
-          Enemy.add(rand(150) + 150, rand(150) + 150, enemy_img)
+      if Enemy.collection.length < 3
+        enemy_img = Image.load("images/enemy1.png")
+        5.times do |i|
+          Enemy.add(rand(770), 0, enemy_img)
         end
       end
 
@@ -59,3 +63,9 @@ module Scene
     end
   end
 end
+
+
+
+C:\Users\kijiharu\Desktop\nacl_internship\src\team2>git remote -v
+origin  https://github.com/NaCl-internship-2022-Summer/team2.git (fetch)
+origin  https://github.com/NaCl-internship-2022-Summer/team2.git (push) 
