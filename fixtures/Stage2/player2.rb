@@ -35,7 +35,20 @@ module Fixture::MainGame
           bullet = 0
         end
       end
+      
       @beams.each { |n| n.update }
+      
+      if @player.x < 0
+        @player.x = 0
+      elsif @player.x > Window.width
+        @player.x = Window.width
+      end
+      
+      if @player.y < 0
+        @player.y = 0
+      elsif @player.y > Window.height
+        @player.y = Window.height
+      end
     end
 
     def damage
