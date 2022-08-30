@@ -1,24 +1,22 @@
 module Fixture::MainGame
   class Beam < Sprite
-    def initialize(x, y, speed, image)
+    def initialize(x, y, isplayer)
       self.x = x
       self.y = y
-      @speed = speed
+      if isplayer
+        @speed = -3
+        image = Image.load("images/player.png")
+      else
+        @speed = 3
+        image = Image.load("images/enemy_ballet.png")
+      end
       self.image = image
       self.image.set_color_key(C_WHITE)
     end
 
     def update
-      p self.y
       self.y += @speed
-      if self.y >= -10||Sprite.check(@bullets, Enemy.collection)
-        self.draw
-      else
-        @bullets = 0
-      end
-      if Sprite.check(@bullets, Enemy.collection)
-        @score += 1
-      end
+      self.draw
     end
   end
 end

@@ -15,7 +15,7 @@ module Fixture::MainGame
       @@collection << self.new(x, y, image)
     end
 
-    def initialize(x, y,image)
+    def initialize
       # self.x, self.y: Spriteを親に持つEnemyはattr_accessorで定義されたx, yを持つ
 
       # self:      Enemyクラスから作られたインスタンスである自分
@@ -29,6 +29,7 @@ module Fixture::MainGame
       @ballet_img = Image.load("images/enemy_ballet.png")
       @beams = []
       @beams << Beam.new(self.x,self.y,10,ballet_img)
+
 
 
       @health = 20

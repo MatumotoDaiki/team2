@@ -1,7 +1,7 @@
 module Fixture::MainGame
   class Player < Sprite
-    attr_accessor :bullets
-    def initialize(x, y)
+    attr_accessor :health
+    def initialize
       # self.x, self.y: Spriteを親に持つPlayerはattr_accessorで定義されたx, yを持つ
 
       # self:      Playerクラスから作られたインスタンスである自分
@@ -10,26 +10,36 @@ module Fixture::MainGame
 
       self.x = x
       self.y = y
+      self.image = Image.load("images/player.png")
       @bullets = []
       @window_out = -10
-      self.image = Image.load("images/player.png")
+      @health = 10
       self.image.set_color_key(C_WHITE)
     end
 
     def update
-      self.x += Input.x * 3# 「←」キー: -1, 「→」キー: 1, 押下無し: 0
-      self.x = (self.x + Window.width) % Window.width
-      self.y += Input.y * 3 # 「↑」キー: -1, 「↓」キー: 1, 押下無し: 0
-      self.y = (self.y + Window.height) % Window.height
-      if Input.key_push?(K_SPACE)
-        @bullets << Beam.new(self.x,self.y)
+      if Input.key_down?(K_W) || Input.key_down?(K_UP) then  # Escキーで終了
+        self.y -= 3
+      elsif Input.key_down?(K_S) || Input.key_down?(K_DOWN) then
+        self.y += 3
+      elsif Input.key_down?(K_A) || Input.key_down?(K_LEFT) then
+        self.x -= 3
+      elsif Input.key_down?(K_D) || Input.key_down?(K_RIGHT) then
+        self.x += 3
       end
-      for i in @bullets do
-        if i.y >= @window_out
-          i = 0
+      if Input.key_push?(K_SPACE)
+        @bullets << Beam.new(self.x,self.y,-3)
+      end
+      for bullet in @bullets do
+        if bullet.y >= @window_out
+          bullet = 0
         end
       end
       @bullets.each { |n| n.update }
+    end
+
+    def damage
+      @health -= 1
     end
   end
 end
