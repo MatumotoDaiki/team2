@@ -1,11 +1,14 @@
 module Scene
+  # クラス名変更
   class MainGame < Scene::Base
+
+    # ステージ番号に変更
     include Fixture::MainGame
 
     def initialize
       super
 
-      @player = Player.new(Window.width/2, Window.height - 50)
+      @player = Player.new
       @enemy = Enemy.new
 
     end
