@@ -15,7 +15,7 @@ module Scene
     end
 
     def next_scene
-      Scene::MainGame.new
+      Scene::Stage2.new
     end
 
     def finish?

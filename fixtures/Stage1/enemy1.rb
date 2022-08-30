@@ -1,5 +1,5 @@
-module Fixture::MainGame
-  class Enemy < Sprite
+module Fixture::Stage1
+  class Enemy1 < Sprite
     attr_accessor :v
     attr_accessor :health
     # クラス変数は@@で作れる
@@ -15,7 +15,7 @@ module Fixture::MainGame
       @@collection << self.new(x, y, image)
     end
 
-    def initialize(x, y,image)
+    def initialize
       # self.x, self.y: Spriteを親に持つEnemyはattr_accessorで定義されたx, yを持つ
 
       # self:      Enemyクラスから作られたインスタンスである自分
