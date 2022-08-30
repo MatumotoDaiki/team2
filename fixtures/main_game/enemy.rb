@@ -24,10 +24,11 @@ module Fixture::MainGame
       self.image = image
       self.x, self.y, = x, y
       
-      #beam_count = 0
+      @count = 0
 
-      ballet_img = Image.load("images/enemy_ballet.png")
-      @beam = Beam.new(self.x,self.y,10,ballet_img)
+      @ballet_img = Image.load("images/enemy_ballet.png")
+      @beams = []
+      @beams << Beam.new(self.x,self.y,10,ballet_img)
 
 
       @health = 20
@@ -41,9 +42,8 @@ module Fixture::MainGame
       @v += acceleration
       limitted_v = @v.abs % 10
       @v = @v < 0 ? -limitted_v : limitted_v
-      #self.y += 2
       self.x = self.x + @v
-      #beam_count += 1
+      @count += 1
       
 
       if self.y > 600
@@ -55,7 +55,11 @@ module Fixture::MainGame
       elsif self.x > 800
         self.x = 0
       end
-      @beam.update
+      
+      if count % 60 == 0
+        @beams << Beam.new(self.x, self.y, 10 ,@ballet_img)
+      end
+      @beams.each { |n| n.update }
     end
 
     def hit(obj)
