@@ -29,11 +29,7 @@ module Fixture::Stage1
         self.x += 3
       end
       if Input.key_push?(K_SPACE)
-<<<<<<< HEAD
-        @bullets << Beam1.new(self.x,self.y,-3)
-=======
-        @beams << Beam.new(self.x,self.y,-3)
->>>>>>> 2f06b2488688b9679b828d6d347136363cd0879b
+        @beams << Beam1.new(self.x,self.y,-3)
       end
       for bullet in @beams do
         if bullet.y >= @window_out
