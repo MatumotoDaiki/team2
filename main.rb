@@ -4,7 +4,14 @@ require 'dxruby'
 # https://docs.ruby-lang.org/ja/2.7.0/method/Dir/s/=5b=5d.html
 
 # require_relative: 相対パスでrubyファイルを読み込めます。
-Dir['setting.rb', 'lib/*.rb', 'fixtures/*.rb', 'fixtures/main_game/*.rb', 'scene/*.rb'].each do |file|
+Dir['setting.rb',
+    'lib/*.rb',
+    'fixtures/*.rb',
+    'fixtures/main_game/*.rb',
+    'fixtures/Stage1/*.rb',
+    'fixtures/Stage2/*.rb',
+    'fixtures/Stage3/*.rb',
+    'scene/*.rb'].each do |file|
   require_relative file
 end
 
