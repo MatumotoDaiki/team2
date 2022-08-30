@@ -2,7 +2,7 @@ module Scene
   class Base
     def initialize
       @count = 0
-      @background = Image.load("images/background.jpg", 0, 0, Window.width, Window.height)
+      @background = Image.load("images/background.png", 0, 0, Window.width, Window.height)
     end
 
     def update
@@ -20,9 +20,9 @@ module Scene
     private
 
     def move_background_right_and_draw
-      background_x_pos = @count % Window.width
-      Window.draw(background_x_pos - Window.width, 0, @background)
-      Window.draw(background_x_pos, 0, @background)
+      background_y_pos = @count % Window.height
+      Window.draw(background_y_pos - Window.height, 0, @background)
+      Window.draw(background_y_pos, 0, @background)
     end
 
     def move_background_down_and_draw
