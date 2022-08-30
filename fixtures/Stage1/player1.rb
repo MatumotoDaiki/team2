@@ -12,7 +12,7 @@ module Fixture::Stage1
       self.x = 350
       self.y = 550
       self.image = Image.load("images/player.png")
-      @bullets = []
+      @beams = []
       @window_out = -10
       @health = 10
       self.image.set_color_key(C_WHITE)
@@ -29,14 +29,18 @@ module Fixture::Stage1
         self.x += 3
       end
       if Input.key_push?(K_SPACE)
+<<<<<<< HEAD
         @bullets << Beam1.new(self.x,self.y,-3)
+=======
+        @beams << Beam.new(self.x,self.y,-3)
+>>>>>>> 2f06b2488688b9679b828d6d347136363cd0879b
       end
-      for bullet in @bullets do
+      for bullet in @beams do
         if bullet.y >= @window_out
           bullet = 0
         end
       end
-      @bullets.each { |n| n.update }
+      @beams.each { |n| n.update }
     end
 
     def damage

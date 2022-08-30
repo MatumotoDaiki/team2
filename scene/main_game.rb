@@ -29,14 +29,20 @@ module Scene
         @player.damege
       end
 
-      if @player === @enemy.beams
-        @player.damege
+      @enemy.beams.each |beam| do
+        if @player === beam
+          @player.damage
+          beam = 0
+        end
       end
 
-      if @enemy === @player.bullets
-        @player.damege
+      @player.beams.each |beam| do
+        if beam === @enemy
+          @enemy.damage
+          beam = 0
+        end
       end
-
+      
     end
 
     def next_scene
