@@ -1,7 +1,7 @@
 module Fixture::MainGame
   class Player < Sprite
     attr_accessor :health
-    def initialize(x, y)
+    def initialize
       # self.x, self.y: Spriteを親に持つPlayerはattr_accessorで定義されたx, yを持つ
 
       # self:      Playerクラスから作られたインスタンスである自分
@@ -28,7 +28,7 @@ module Fixture::MainGame
         self.x += 3
       end
       if Input.key_push?(K_SPACE)
-        @bullets << Beam.new(self.x,self.y)
+        @bullets << Beam.new(self.x,self.y,-3)
       end
       for bullet in @bullets do
         if bullet.y >= @window_out

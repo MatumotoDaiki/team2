@@ -15,16 +15,19 @@ module Fixture::MainGame
       @@collection << self.new(x, y, image)
     end
 
-    def initialize
+    def initialize(x, y,image)
       # self.x, self.y: Spriteを親に持つEnemyはattr_accessorで定義されたx, yを持つ
 
       # self:      Enemyクラスから作られたインスタンスである自分
       # self.変数: selfの持つ変数を呼び出す (その処理はgetter/setterを呼び出す)
       # @変数:     インスタンス変数(privateで参照可能な変数)
-      self.image = Image.load("images/enemy1.png")
-      self.x, self.y, = Window.width/2, 10
+      self.image = image
+      self.x, self.y, = x, y
+      
+      #beam_count = 0
 
-      @beam = Beam.new(self.x,self.y,false)
+      ballet_img = Image.load("images/enemy_ballet.png")
+      @beam = Beam.new(self.x,self.y,10,ballet_img)
 
 
       @health = 20

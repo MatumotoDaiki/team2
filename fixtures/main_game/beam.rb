@@ -1,10 +1,16 @@
 module Fixture::MainGame
   class Beam < Sprite
-    def initialize(x, y)
+    def initialize(x, y, isplayer)
       self.x = x
       self.y = y
-      @speed = -3
-      self.image = Image.load("images/player.png")
+      if isplayer
+        @speed = -3
+        image = Image.load("images/player.png")
+      else
+        @speed = 3
+        image = Image.load("images/enemy_ballet.png")
+      end
+      self.image = image
       self.image.set_color_key(C_WHITE)
     end
 
