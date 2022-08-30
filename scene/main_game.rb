@@ -29,14 +29,14 @@ module Scene
         @player.damege
       end
 
-      @enemy.beams.each |beam| do
+      @enemy.beams.each do |beam|
         if @player === beam
           @player.damage
           beam = 0
         end
       end
 
-      @player.beams.each |beam| do
+      @player.beams.each do |beam|
         if beam === @enemy
           @enemy.damage
           beam = 0
