@@ -9,11 +9,12 @@ module Scene
 
       #enemy_img = Image.new(64, 64, C_RED)
       enemy_img = Image.load("images/enemy1.png")
-      ballet_img = Image.load("images/enemy1.png")
-      5.times do |i|
-        Enemy.add(rand(770), 0,enemy_img)
-        Beam
-      end
+      ballet_img = Image.load("images/enemy_ballet.png")
+      #5.times do |i|
+        #Enemy.add(rand(770), 0,enemy_img)
+      #end
+      @enemy = Enemy.new(rand(400), 0, enemy_img)
+      @beam = Beam.new(@enemy.getX,@enemy.getY,10,ballet_img)
     end
 
     def update
@@ -22,13 +23,15 @@ module Scene
 
       @player.update
       @player.draw
+      @enemy.update
+      @enemy.draw
+      #@beam.update
 
-      management_enemy
+      #management_enemy
 
       # どれか一つでも当たっていれば1得点(複数個当たっていても1点しか入らない)
       if Sprite.check(@player, Enemy.collection)
         @score += 1
-        puts @score
       end
     end
 
@@ -46,26 +49,6 @@ module Scene
     end
 
     private
-
-    def management_enemy
-      # 敵が10体未満なら、10体追加
-      if Enemy.collection.length < 3
-        enemy_img = Image.load("images/enemy1.png")
-        5.times do |i|
-          Enemy.add(rand(770), 0, enemy_img)
-        end
-      end
-
-      Enemy.collection.each do |enemy|
-        enemy.update
-        enemy.draw
-      end
-    end
   end
 end
 
-
-
-C:\Users\kijiharu\Desktop\nacl_internship\src\team2>git remote -v
-origin  https://github.com/NaCl-internship-2022-Summer/team2.git (fetch)
-origin  https://github.com/NaCl-internship-2022-Summer/team2.git (push) 
