@@ -11,6 +11,7 @@ Dir['setting.rb',
     'fixtures/Stage1/*.rb',
     'fixtures/Stage2/*.rb',
     'fixtures/Stage3/*.rb',
+    'fixtures/mouse/*.rb',
     'scene/*.rb'].each do |file|
   require_relative file
 end
