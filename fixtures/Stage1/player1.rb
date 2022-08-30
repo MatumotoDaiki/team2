@@ -1,5 +1,5 @@
-module Fixture::Stage2
-  class Player2 < Sprite
+module Fixture::Stage1
+  class Player1 < Sprite
     attr_accessor :health
     def initialize
       # self.x, self.y: Spriteを親に持つPlayerはattr_accessorで定義されたx, yを持つ
@@ -10,7 +10,7 @@ module Fixture::Stage2
 
       self.x = x
       self.y = y
-      self.image = Image.load("images/player.jpg")
+      self.image = Image.load("images/player.png")
       @bullets = []
       @window_out = -10
       @health = 10

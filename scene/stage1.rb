@@ -8,8 +8,8 @@ module Scene
       def initialize
         super
   
-        @player = Player.new
-        @enemy = Enemy.new
+        @player = Player1.new
+        @enemy = Enemy1.new
   
       end
   
