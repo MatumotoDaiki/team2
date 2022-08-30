@@ -2,6 +2,7 @@ module Fixture::Stage1
   class Enemy1 < Sprite
     attr_accessor :v
     attr_accessor :health
+    attr_accessor :beams
     # クラス変数は@@で作れる
     # クラス変数は親クラスで使用すると全ての子クラスに影響するので使用を控える
     # 変数の影響範囲を変数のscopeという
@@ -21,13 +22,12 @@ module Fixture::Stage1
       # self:      Enemyクラスから作られたインスタンスである自分
       # self.変数: selfの持つ変数を呼び出す (その処理はgetter/setterを呼び出す)
       # @変数:     インスタンス変数(privateで参照可能な変数)
-      self.image = image
-      self.x, self.y, = x, y
+      self.image = Image.load("images/enemy1.png")
+      self.x, self.y, = 350, 100 
       
       #beam_count = 0
 
-      ballet_img = Image.load("images/enemy_ballet.png")
-      @beam = Beam.new(self.x,self.y,10,ballet_img)
+      @beams = Beam1.new(self.x,self.y + 100,false)
 
 
       @health = 20
@@ -55,11 +55,10 @@ module Fixture::Stage1
       elsif self.x > 800
         self.x = 0
       end
-      @beam.update
+      @beams.update
     end
 
-    def hit(obj)
-      self.class.collection.delete(self)
+    def damage
       @health -= 1
     end
 

@@ -1,6 +1,7 @@
 module Fixture::Stage1
   class Player1 < Sprite
     attr_accessor :health
+    attr_accessor :bullets
     def initialize
       # self.x, self.y: Spriteを親に持つPlayerはattr_accessorで定義されたx, yを持つ
 
@@ -8,8 +9,8 @@ module Fixture::Stage1
       # self.変数: selfの持つ変数を呼び出す (その処理はgetter/setterを呼び出す)
       # @変数:     インスタンス変数 (privateで参照可能な変数)
 
-      self.x = x
-      self.y = y
+      self.x = 350
+      self.y = 550
       self.image = Image.load("images/player.png")
       @bullets = []
       @window_out = -10
@@ -28,7 +29,7 @@ module Fixture::Stage1
         self.x += 3
       end
       if Input.key_push?(K_SPACE)
-        @bullets << Beam.new(self.x,self.y,-3)
+        @bullets << Beam1.new(self.x,self.y,-3)
       end
       for bullet in @bullets do
         if bullet.y >= @window_out

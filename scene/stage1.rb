@@ -19,6 +19,8 @@ module Scene
   
         @player.update
         @player.draw
+        puts @player.health
+        
   
         @enemy.update
         @enemy.draw
@@ -30,22 +32,22 @@ module Scene
         end
   
         if @player === @enemy.beams
-          @player.damege
+          @player.damage
         end
   
         if @enemy === @player.bullets
-          @player.damege
+          @enemy.damage
         end
   
       end
   
       def next_scene
         # 勝利判定で敵の体力を使います
-        Scene::Ending.new(@enemy.helth)
+        Scene::Ending.new(@enemy.health)
       end
   
       def finish?
-        return true if @player.helth <= 0 || @enemy.helth <= 0 || Input.key_push?(K_ESCAPE)
+        return true if @player.health <= 0 || @enemy.health <= 0 || Input.key_push?(K_ESCAPE)
         false
       end
       private
