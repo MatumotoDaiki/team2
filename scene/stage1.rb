@@ -41,7 +41,6 @@ module Scene
         #@player.bullets_delete(i)
         #i += 1
       #end 
-      puts @enemy.health
     end
   
     def next_scene

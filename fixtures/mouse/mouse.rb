@@ -3,7 +3,7 @@ module Fixture::Select
         def initialize
             self.x = Input.mouse_pos_x
             self.y = Input.mouse_pos_y
-            self.image = Image.new(0.1, 0.1, C_WHITE)
+            self.image = Image.new(1, 1, C_WHITE)
         end
         
         def update
