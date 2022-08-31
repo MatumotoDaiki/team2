@@ -18,5 +18,6 @@ module Fixture::Stage1
       self.y += @speed
       self.draw
     end
+
   end
 end

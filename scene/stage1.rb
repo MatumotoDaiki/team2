@@ -14,24 +14,34 @@ module Scene
       move_background_down_and_draw
       @player.update
       @player.draw
-      puts @player.health
       
       @enemy.update
       @enemy.draw
       
       # 衝突判定
       if @player === @enemy
-        @player.damege
+        @player.damage
       end
 
       if @player === @enemy.beams
-        @player.damege
+        @player.damage
       end
 
-      if @enemy === @player.bullets
-        @player.damege
+      i = 0
+
+      for bullet in @player.bullets
+        if @enemy === bullet
+          @enemy.damage
+          @player.bullets_delete(i)
+        end
+        i += 1
       end
-  
+      #if @enemy === @player.bullets
+        #@enemy.damage
+        #@player.bullets_delete(i)
+        #i += 1
+      #end 
+      puts @enemy.health
     end
   
     def next_scene

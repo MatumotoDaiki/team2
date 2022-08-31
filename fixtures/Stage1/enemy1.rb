@@ -24,9 +24,10 @@ module Fixture::Stage1
       self.image = Image.load("images/enemy1.png")
       self.x, self.y, = 350, 100 
       
-      #beam_count = 0
+      @count = 0
+      @beams = []
 
-      @beams = Beam1.new(self.x,self.y + 100,false)
+      #@beams << Beam1.new(self.x,self.y + 100,false, 0)
 
 
       @health = 20
@@ -54,7 +55,12 @@ module Fixture::Stage1
       elsif self.x > 800
         self.x = 0
       end
-      @beams.update
+      @beams.each { |n| n.update }
+      @count += 1
+
+      if @count % 20 == 0
+        @beams << Beam1.new(self.x, self.y + 100, false)
+      end
     end
 
     def damage
