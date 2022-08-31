@@ -18,7 +18,6 @@ module Fixture::Stage1
 
     def initialize
       # self.x, self.y: Spriteを親に持つEnemyはattr_accessorで定義されたx, yを持つ
-
       # self:      Enemyクラスから作られたインスタンスである自分
       # self.変数: selfの持つ変数を呼び出す (その処理はgetter/setterを呼び出す)
       # @変数:     インスタンス変数(privateで参照可能な変数)
