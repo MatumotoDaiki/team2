@@ -4,12 +4,12 @@ module Scene
 
     # ステージ番号に変更
     include Fixture::Stage2
-
+    include Fixture::Stage1
     def initialize
       super
 
       @player = Player2.new
-      @enemy = Enemy2.new
+      @enemy = Enemy1.new
 
     end
 
@@ -48,6 +48,5 @@ module Scene
       return true if @player.helth <= 0 || @enemy.helth <= 0 || Input.key_push?(K_ESCAPE)
       false
     end
-    private
   end
 end

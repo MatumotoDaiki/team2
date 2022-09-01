@@ -9,6 +9,7 @@ module Scene
       # 4等分する感じ
       @stage1_button = Sprite.new(Window.width / 4     - (button_size_x / 2), Window.height / 2, button_image)
       @stage2_button = Sprite.new(Window.width / 2     - (button_size_x / 2), Window.height / 2, button_image)
+      button_image = Image.new(button_size_x, 100, C_GREEN)
       @stage3_button = Sprite.new(Window.width / 4 * 3 - (button_size_x / 2), Window.height / 2, button_image)
       @mouse = Mouse.new
       @checker = false
@@ -26,7 +27,7 @@ module Scene
 
         @next_stage = Scene::Stage1.new if @mouse === @stage1_button
         @next_stage = Scene::Stage2.new if @mouse === @stage2_button
-        #@next_stage = Scene::Stage3.new if @mouse === @stage3_button
+        @next_stage = Scene::Stage3.new if @mouse === @stage3_button
         @checker = true
       end
     end
