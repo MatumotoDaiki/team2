@@ -4,10 +4,7 @@ module Scene
     def update
       super
       move_background_right_and_draw
-
-      Window.draw_font(Window.width / 2 - 200, 100, "move : W, A, S, D", Font.new(32))
-      Window.draw_font(Window.width / 2 - 200, Window.height / 2, "attack : SPACE key", Font.new(32))
-      Window.draw_font(Window.width / 2 - 180, Window.height - 100, "Please click or push space key", Font.new(25))
+      Window.draw(0, 100, Image.load("images/question_scene.png"))
     end
 
     def next_scene
