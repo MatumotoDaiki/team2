@@ -56,5 +56,9 @@ module Scene
       false
     end
     private
+
+    def next_scene
+      Scene::Score.new(3, @time)
+    end
   end
 end
