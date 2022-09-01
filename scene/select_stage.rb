@@ -17,7 +17,7 @@ module Scene
 
     def update
       super
-      move_background_right_and_draw
+      just_draw
       Window.draw_font(Window.width / 2 - 250, Window.height / 4, "Please select stage!", Font.new(64))
       @stage1_button.draw
       @stage2_button.draw

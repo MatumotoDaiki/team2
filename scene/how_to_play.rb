@@ -3,7 +3,7 @@ module Scene
 
     def update
       super
-      move_background_right_and_draw
+      just_draw
       Window.draw(0, 100, Image.load("images/question_scene.png"))
     end
 
