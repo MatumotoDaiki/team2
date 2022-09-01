@@ -3,8 +3,9 @@ module Fixture::Stage3
     def initialize(x, y, angle)
       self.x = x
       self.y = y
-      self.image = Image.new(50, 50, C_YELLOW)
-      @speed = 5
+      colors = [C_RED, C_YELLOW, C_BLUE, C_GREEN]
+      self.image = Image.new(10, 10, colors[rand(5)])
+      @speed = 6
       @angle = angle
     end
 

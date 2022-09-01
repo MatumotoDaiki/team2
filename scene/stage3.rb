@@ -42,7 +42,6 @@ module Scene
     end
 
     def next_scene
-
       Scene::Ending.new(@time / 60)
     end
   end

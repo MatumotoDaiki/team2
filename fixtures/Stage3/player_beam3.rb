@@ -23,7 +23,7 @@ module Fixture::Stage3
 
     def update
       self.y -= 7
-      self.x += 5
+      self.x += 4
       self.draw
     end
   end
@@ -37,7 +37,7 @@ module Fixture::Stage3
 
     def update
       self.y -= 7
-      self.x -= 5
+      self.x -= 4
       self.draw
     end
   end
@@ -51,7 +51,7 @@ module Fixture::Stage3
 
     def update
       self.y -= 8
-      self.x += 3
+      self.x += 2
       self.draw
     end
   end
@@ -64,8 +64,8 @@ module Fixture::Stage3
     end
 
     def update
-      self.y -= 7
-      self.x -= 3
+      self.y -= 8
+      self.x -= 2
       self.draw
     end
   end
