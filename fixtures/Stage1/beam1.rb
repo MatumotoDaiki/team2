@@ -6,9 +6,9 @@ module Fixture::Stage1
       @speedx = xspeed
       @speedy = yspeed
       if @speedy < 0
-        image = Image.load("images/player.png")
+        image = Image.load("images/player_bullet.png")
       else
-        image = Image.load("images/enemy_ballet.png")
+        image = Image.load("images/enemy_bullet.png")
       end
       self.image = image
       self.image.set_color_key(C_WHITE)
