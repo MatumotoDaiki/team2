@@ -31,15 +31,15 @@ module Fixture::Stage1
 
 
       @health = 20
-      @v = rand(7) - 3
+      @v = rand(8) - 3
     end
 
     def update
       # 加速度をランダムで決定(-3 ~ 3)
-      acceleration = rand(7) - 3
+      acceleration = rand(5) - 2
       # 速さのスカラーを最大10として、速度を計算
       @v += acceleration
-      limitted_v = @v.abs % 10
+      limitted_v = @v.abs % 7
       @v = @v < 0 ? -limitted_v : limitted_v
       #self.y += 2
       self.x = self.x + @v
@@ -58,21 +58,37 @@ module Fixture::Stage1
       @beams.each { |n| n.update }
       @count += 1
 
-      if @count % 20 == 0
-        @beams << Beam1.new(self.x, self.y + 100, false)
+      if @count % 30 == 0
+        @beams << Beam1.new(self.x, self.y + 100, 3,0)
+      end
+
+      if @count % 300 == 0
+        flag = 0
+        x = -10
+        y = 1
+        20.times do
+          @beams << Beam1.new(self.x+y, self.y+x + 100, y, x)
+          x += 1
+          if flag == 0
+            y += 1
+          else
+            y -= 1
+          end
+          
+          if y == 10
+            flag = 1
+          end
+        end
       end
     end
 
     def damage
       @health -= 1
+      puts "敵の体力残り:#{@health}"
     end
 
-    def getX
-      return self.x
-    end
-
-    def getY
-      return self.y
+    def bullets_delete(i)
+      @beams.delete_at(i)
     end
   end
 end

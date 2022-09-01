@@ -29,7 +29,7 @@ module Fixture::Stage1
         self.x += 3
       end
       if Input.key_push?(K_SPACE)
-        @bullets << Beam1.new(self.x, self.y, true)
+        @bullets << Beam1.new(self.x, self.y, -3, 0)
       end
       for bullet in @bullets
         if bullet.y >= @window_out
@@ -53,6 +53,7 @@ module Fixture::Stage1
 
     def damage
       @health -= 1
+      puts "体力残り:#{@health}"
     end
     
     def bullets_delete(i)

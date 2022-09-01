@@ -1,13 +1,13 @@
 module Fixture::Stage1
   class Beam1 < Sprite
-    def initialize(x, y, isplayer)
+    def initialize(x, y, yspeed, xspeed)
       self.x = x
       self.y = y
-      if isplayer
-        @speed = -3
+      @speedx = xspeed
+      @speedy = yspeed
+      if @speedy < 0
         image = Image.load("images/player.png")
       else
-        @speed = 3
         image = Image.load("images/enemy_ballet.png")
       end
       self.image = image
@@ -15,7 +15,8 @@ module Fixture::Stage1
     end
 
     def update
-      self.y += @speed
+      self.y += @speedy
+      self.x += @speedx
       self.draw
     end
 
