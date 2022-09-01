@@ -42,8 +42,7 @@ module Scene
     end
 
     def next_scene
-
-      Scene::Ending.new(@time / 60)
+      Scene::Score.new(3,@time, @enemy.health)
     end
   end
 end
