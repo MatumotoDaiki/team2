@@ -6,11 +6,11 @@ module Scene
       @next_scene = Scene::Select
       button_size_x = 120
       button_image = Image.new(button_size_x, 100, C_WHITE)
-      # 4等分する感じ
-      @stage1_button = Sprite.new(Window.width / 4     - (button_size_x / 2), Window.height / 2, button_image)
+      @button1 = Image.load("images/button1.png")
+      @stage1_button = Sprite.new(Window.width / 4     - (@button1.width / 2), Window.height / 2, @button1)
       @stage2_button = Sprite.new(Window.width / 2     - (button_size_x / 2), Window.height / 2, button_image)
-      button_image = Image.new(button_size_x, 100, C_GREEN)
-      @stage3_button = Sprite.new(Window.width / 4 * 3 - (button_size_x / 2), Window.height / 2, button_image)
+      @button3 = Image.load("images/button3.png")
+      @stage3_button = Sprite.new(Window.width / 4 * 3 - (@button3.width / 2), Window.height / 2, @button3)
       @mouse = Mouse.new
       @checker = false
     end
