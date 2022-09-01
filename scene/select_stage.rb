@@ -26,7 +26,7 @@ module Scene
 
         @next_stage = Scene::Stage1.new if @mouse === @stage1_button
         @next_stage = Scene::Stage2.new if @mouse === @stage2_button
-        #@next_stage = Scene::Stage3.new if @mouse === @stage3_button
+        8        #@next_stage = Scene::Stage3.new if @mouse === @stage3_button
         @checker = true
       end
     end
