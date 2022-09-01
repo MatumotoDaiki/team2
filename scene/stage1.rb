@@ -23,12 +23,20 @@ module Scene
         @player.damage
       end
 
+      f = 0
+      for beam in @enemy.beams
+        if @player === beam
+          @player.damage
+          @enemy.bullets_delete(f)
+        end
+        f += 1
+      end
+
       if @player === @enemy.beams
         @player.damage
       end
 
       i = 0
-
       for bullet in @player.bullets
         if @enemy === bullet
           @enemy.damage
@@ -36,11 +44,6 @@ module Scene
         end
         i += 1
       end
-      #if @enemy === @player.bullets
-        #@enemy.damage
-        #@player.bullets_delete(i)
-        #i += 1
-      #end 
     end
   
     def next_scene
