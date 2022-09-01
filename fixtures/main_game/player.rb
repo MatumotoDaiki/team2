@@ -9,6 +9,7 @@ module Fixture::Stage2
       # @変数:     インスタンス変数 (privateで参照可能な変数)
 
       self.x = x
+
       self.y = y
       self.image = Image.load("images/player.jpg")
       @beams = []

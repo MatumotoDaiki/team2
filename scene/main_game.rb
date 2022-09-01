@@ -7,10 +7,8 @@ module Scene
 
     def initialize
       super
-
       @player = Player.new
       @enemy = Enemy.new
-
     end
 
     def update
@@ -47,7 +45,7 @@ module Scene
 
     def next_scene
       # 勝利判定で敵の体力を使います
-      Scene::Ending.new(@enemy.helth)
+      Scene::Ending.new(@enemy.health)
     end
 
     def finish?
