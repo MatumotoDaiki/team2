@@ -6,18 +6,18 @@ module Scene
       @next_scene = Scene::Select
       button_size_x = 120
       button_image = Image.new(button_size_x, 100, C_WHITE)
-      # 4等分する感じ
-      @stage1_button = Sprite.new(Window.width / 4     - (button_size_x / 2), Window.height / 2, button_image)
+      @button1 = Image.load("images/button1.png")
+      @stage1_button = Sprite.new(Window.width / 4     - (@button1.width / 2), Window.height / 2, @button1)
       @stage2_button = Sprite.new(Window.width / 2     - (button_size_x / 2), Window.height / 2, button_image)
-      button_image = Image.new(button_size_x, 100, C_GREEN)
-      @stage3_button = Sprite.new(Window.width / 4 * 3 - (button_size_x / 2), Window.height / 2, button_image)
+      @button3 = Image.load("images/button3.png")
+      @stage3_button = Sprite.new(Window.width / 4 * 3 - (@button3.width / 2), Window.height / 2, @button3)
       @mouse = Mouse.new
       @checker = false
     end
 
     def update
       super
-      move_background_right_and_draw
+      just_draw
       Window.draw_font(Window.width / 2 - 250, Window.height / 4, "Please select stage!", Font.new(64))
       @stage1_button.draw
       @stage2_button.draw
@@ -28,6 +28,7 @@ module Scene
         @next_stage = Scene::Stage1.new if @mouse === @stage1_button
         @next_stage = Scene::Stage2.new if @mouse === @stage2_button
         @next_stage = Scene::Stage3.new if @mouse === @stage3_button
+
         @checker = true
       end
     end

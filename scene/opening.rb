@@ -13,7 +13,7 @@ module Scene
 
     def update
       super
-      move_background_right_and_draw
+      just_draw
 
       @Question.draw
       @mouse.update

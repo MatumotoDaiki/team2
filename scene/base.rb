@@ -30,5 +30,9 @@ module Scene
       Window.draw(0, background_y_pos - Window.height, @background)
       Window.draw(0, background_y_pos, @background)
     end
+
+    def just_draw
+      Window.draw(0, 0, @background)
+    end
   end
 end
