@@ -7,11 +7,13 @@ module Scene
       super
       @player = Player1.new
       @enemy = Enemy1.new
+      @time = 0
     end
   
     def update
       super
       move_background_down_and_draw
+      @time += 1
       @player.update
       @player.draw
       
@@ -55,10 +57,9 @@ module Scene
       return true if @player.health <= 0 || @enemy.health <= 0 || Input.key_push?(K_ESCAPE)
       false
     end
-    private
 
     def next_scene
-      Scene::Score.new(3, @time)
+      Scene::Score.new(1, @time, @enemy.health)
     end
   end
 end
